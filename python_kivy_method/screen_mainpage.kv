@@ -1,0 +1,31 @@
+<screen_mainpage>:
+    id: mainpage
+    name: "mainpage"
+    canvas:
+        Color:
+            rgba: root.background_color
+        Rectangle:
+            pos: root.pos
+            size: root.size
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: root.getscores()
+            color: root.font_color_title
+            bold: True
+            font_size: "55sp"
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_x: 0.8
+            pos_hint: {"center_x": 0.5}
+            Button:
+                id: btn_choose
+                text: "Hello"
+                font_size: "14sp"
+                color: root.font_color
+        Label:
+            text: "Hello"
+            color: root.font_color_title
+            font_size: "40sp"
+
+
