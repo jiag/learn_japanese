@@ -19,9 +19,11 @@ from kivy.lang import Builder
 
 import sys
 from screen_mainpage import screen_mainpage
+from screen_info import screen_info
+
 
 Builder.load_file('screen_mainpage.kv')
-
+Builder.load_file('screen_info.kv')
 
 
 class LearnJapanese_ScreenManager(ScreenManager):
@@ -29,6 +31,7 @@ class LearnJapanese_ScreenManager(ScreenManager):
     def __init__(self, **kwargs):
         super(LearnJapanese_ScreenManager, self).__init__(**kwargs)
         self.add_widget(screen_mainpage(name="mainpage"))
+        self.add_widget(screen_info(name="info"))
         self.current = 'mainpage'
 
 

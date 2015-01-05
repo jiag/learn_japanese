@@ -4,20 +4,14 @@ from kivy.properties import (
     ListProperty, NumericProperty, StringProperty, BooleanProperty)
 from kivy.uix.boxlayout import BoxLayout
 from kivy.adapters.dictadapter import ListAdapter
-from kivy.uix.listview import ListView, ListItemButton
-from kivy.uix.behaviors import ButtonBehavior
-from kivy.uix.image import Image
-from kivy.uix.popup import Popup
-from kivy.app import App
-
-class IconButton(ButtonBehavior, Image):
-#    def __init__(self,*args,**kwargs):
-#       super(iconButton,self).__init__(*args,**kwargs)
-    pass
+from kivy.uix.label import Label
 
 
+class SectionLabels(Label):
+    sections = StringProperty("")
+    contents = StringProperty("")
 
-class screen_mainpage(Screen):
+class screen_info(Screen):
     background_color = ListProperty([0.85, 0.95, 0.85, 0.8])
     background_color_secondary = ListProperty([0, 1, 1, 1])
     font_color = ListProperty([0.35, 0.35, 1, 1])
@@ -26,10 +20,8 @@ class screen_mainpage(Screen):
     score=StringProperty("Score: 0")
 
     def __init__(self, *args, **kwargs):
-        super(screen_mainpage, self).__init__(*args, **kwargs)
+        super(screen_info, self).__init__(*args, **kwargs)
 
-    def getscores(self):
-        return self.score
 
-    def gotoInfo(self):
-        self.parent.current='info'
+    def gotoMain(self):
+        self.parent.current='mainpage'

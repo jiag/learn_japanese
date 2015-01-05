@@ -9,6 +9,14 @@
             size: root.size
     BoxLayout:
         orientation: "vertical"
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_x: 0.8
+            pos_hint: {"center_x": 0.5}
+            IconButton:
+                text: "Info"
+                font_size: "20sp"
+                on_press: root.gotoInfo()
         Label:
             text: root.getscores()
             color: root.font_color_title

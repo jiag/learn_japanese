@@ -1,0 +1,33 @@
+
+<SectionLabels>
+    pos_hint: {'center_x': 0.5}
+    font_name: 'DroidSans'
+    markup: True
+    halign: 'left'
+    valign: 'middle'
+    text_size: (self.parent.width*0.95, None)
+    font_size: '18sp'
+    text: '[b]' + self.sections + '[/b]\n' + self.contents
+    color: 0, 0, 0, 1
+
+
+<screen_info>:
+    id: info
+    name: "info"
+    canvas:
+        Color:
+            rgba: root.background_color
+        Rectangle:
+            pos: root.pos
+            size: root.size
+    BoxLayout:
+        orientation: "vertical"
+        ScrollView:
+            size_hint_y: 0.9
+            SectionLabels:
+                sections: "Listening Mode"
+                contents: "Listen to the pronunciation and choose the correct character."
+        Button:
+            text: "Back to Main"
+            font_size: "20sp"
+            on_press: root.gotoMain()
