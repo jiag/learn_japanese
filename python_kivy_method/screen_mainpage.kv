@@ -14,14 +14,16 @@
             size_hint_x: 0.8
             pos_hint: {"center_x": 0.5}
             IconButton:
-                text: "Info"
                 font_size: "20sp"
                 on_press: root.gotoInfo()
+            Label:
+                text: " 50 Sounds"
+                color: root.font_color_title
         Label:
             text: root.getscores()
-            color: root.font_color_title
+            color: root.font_color_secondary
             bold: True
-            font_size: "55sp"
+            font_size: "40sp"
         BoxLayout:
             orientation: "horizontal"
             size_hint_x: 0.8
@@ -35,5 +37,29 @@
             text: "Hello"
             color: root.font_color_title
             font_size: "40sp"
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_x: 0.8
+            pos_hint: {"center_x": 0.5}
+            MyToggleButton:
+                id: choose_mode
+                text: "Mode\n" + root.mode
+                size_hint_x: None
+            MyDropDown:
+                id: choose_sound
+                Button:
+                    text: 'My first Item'
+                    size_hint_y: None
+                    on_release: root.getSounds()
+                Label:
+                    text: "Unselectable item"
+                Button:
+                    text: 'My second Item'
+                    size_hint_y: None
+                    on_release: root.getSounds()
+            MyToggleButton:
+                id: hiragana_katakana
+                text: root.hika
+                size_hint_x: None
 
 

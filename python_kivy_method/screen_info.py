@@ -21,6 +21,7 @@ class screen_info(Screen):
 
     def __init__(self, *args, **kwargs):
         super(screen_info, self).__init__(*args, **kwargs)
+        print self.children
 
 
     def gotoMain(self):
