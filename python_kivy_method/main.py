@@ -1,4 +1,6 @@
 # -*- coding:utf-8 -*-
+import kivy
+kivy.require('1.7.2')
 from kivy.app import App
 
 from kivy.uix.screenmanager import ScreenManager, Screen
