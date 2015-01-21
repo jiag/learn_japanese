@@ -38,8 +38,7 @@ class LearnJapanese_ScreenManager(ScreenManager):
 class LearnJapaneseApp(App):
 
     def build(self):
-        self.sm = LearnJapanese_ScreenManager()
-        return self.sm
+        return LearnJapanese_ScreenManager()
 
 if __name__ == "__main__":
     LearnJapaneseApp().run()

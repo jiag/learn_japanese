@@ -1,5 +1,6 @@
 <screen_mainpage>:
     id: mainpage
+    buttom_layout: buttomlayoutID
     name: "mainpage"
     canvas:
         Color:
@@ -9,6 +10,7 @@
             size: root.size
     BoxLayout:
         orientation: "vertical"
+        size_hint: 1, 1
         BoxLayout:
             orientation: "horizontal"
             size_hint_x: 0.8
@@ -38,28 +40,18 @@
             color: root.font_color_title
             font_size: "40sp"
         BoxLayout:
+            id: buttomlayoutID
             orientation: "horizontal"
-            size_hint_x: 0.8
-            pos_hint: {"center_x": 0.5}
+            size_hint: 1, 0.3
+            pos_hint: {"x": 0.5}
             MyToggleButton:
                 id: choose_mode
                 text: "Mode\n" + root.mode
                 size_hint_x: None
-            MyDropDown:
-                id: choose_sound
-                Button:
-                    text: 'My first Item'
-                    size_hint_y: None
-                    on_release: root.getSounds()
-                Label:
-                    text: "Unselectable item"
-                Button:
-                    text: 'My second Item'
-                    size_hint_y: None
-                    on_release: root.getSounds()
+                size_hint_y: 1
             MyToggleButton:
                 id: hiragana_katakana
                 text: root.hika
                 size_hint_x: None
-
+                size_hint_y: 1
 

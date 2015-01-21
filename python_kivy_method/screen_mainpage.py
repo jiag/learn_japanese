@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 from kivy.uix.screenmanager import Screen
 from kivy.properties import (
-    ListProperty, NumericProperty, StringProperty, BooleanProperty)
+    ObjectProperty, ListProperty, NumericProperty, StringProperty, BooleanProperty)
 from kivy.uix.boxlayout import BoxLayout
 from kivy.adapters.dictadapter import ListAdapter
 from kivy.uix.listview import ListView, ListItemButton
@@ -11,7 +11,6 @@ from kivy.uix.popup import Popup
 from kivy.uix.togglebutton import ToggleButton
 from kivy.uix.dropdown import DropDown
 from kivy.uix.button import Button
-from kivy.app import App
 
 class IconButton(ButtonBehavior, Image):
 #    def __init__(self,*args,**kwargs):
@@ -21,8 +20,8 @@ class IconButton(ButtonBehavior, Image):
 class MyToggleButton(ToggleButton):
     pass
 
-class MyDropDown(DropDown):
-    pass
+# class MyDropDown(DropDown):
+#     pass
 
 class screen_mainpage(Screen):
     background_color = ListProperty([0.85, 0.95, 0.85, 0.8])
@@ -34,11 +33,21 @@ class screen_mainpage(Screen):
     mode = StringProperty("Reading")
     sound = StringProperty("Basic Sounds")
     hika = StringProperty("Hiragana")
+    buttom_layout = ObjectProperty(None)
+
     def __init__(self, *args, **kwargs):
         super(screen_mainpage, self).__init__(*args, **kwargs)
-        sounds_choice = MyDropDown()
-        mainbutton = Button(text = "Hello!",size_hint=(None,None))
+        sounds_choice = DropDown()
+        sounds_type = ['Basic Sounds', 'Modified Sounds I', 'Modified Sounds II', 'All Sounds']
+        for snd in sounds_type:
+            btn = Button(text='Restart\n'+snd, size_hint_y=None, height=30)
+            btn.bind(on_release=lambda btn: sounds_choice.select(btn.text))
+            sounds_choice.add_widget(btn)
+
+        mainbutton = Button(text = "Restart",size_hint=(None,1))
         mainbutton.bind(on_release=sounds_choice.open)
+        sounds_choice.bind(on_select=lambda instance, x: setattr(mainbutton, 'text', x))
+        self.buttom_layout.add_widget(mainbutton)
 
     def getscores(self):
         return self.score
